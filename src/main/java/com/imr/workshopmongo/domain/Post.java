@@ -6,6 +6,8 @@ import java.util.Objects;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.imr.workshopmongo.dto.AuthorDTO;
+
 @Document(collection = "posts")
 public class Post {
 
@@ -14,13 +16,13 @@ public class Post {
 	private Instant date;
 	private String title;
 	private String body;
-	private User author;
+	private AuthorDTO author;
 	
 	public Post() {
 		super();
 	}
 	
-	public Post(String id, Instant date, String title, String body, User author) {
+	public Post(String id, Instant date, String title, String body, AuthorDTO author) {
 		super();
 		this.id = id;
 		this.date = date;
@@ -53,10 +55,10 @@ public class Post {
 	public void setBody(String body) {
 		this.body = body;
 	}
-	public User getAuthor() {
+	public AuthorDTO getAuthor() {
 		return author;
 	}
-	public void setAuthor(User author) {
+	public void setAuthor(AuthorDTO author) {
 		this.author = author;
 	}
 	

@@ -6,8 +6,10 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.imr.workshopmongo.domain.Post;
 import com.imr.workshopmongo.domain.User;
 import com.imr.workshopmongo.dto.UserDTO;
+import com.imr.workshopmongo.dto.UserPostDTO;
 import com.imr.workshopmongo.repositories.UserRepository;
 import com.imr.workshopmongo.services.exceptions.ObjectNotFoundException;
 
@@ -44,6 +46,11 @@ public class UserService {
 		repository.save(newObj);
 
 		return new UserDTO(newObj);
+	}
+	
+	public UserPostDTO findPostsByUser(String id){
+		return new UserPostDTO(
+				repository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado")));
 	}
 
 	public User fromDTO(UserDTO userDTO) {
