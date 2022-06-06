@@ -6,7 +6,6 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.imr.workshopmongo.domain.Post;
 import com.imr.workshopmongo.domain.User;
 import com.imr.workshopmongo.dto.UserDTO;
 import com.imr.workshopmongo.dto.UserPostDTO;

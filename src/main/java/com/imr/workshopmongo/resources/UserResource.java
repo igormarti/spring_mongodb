@@ -24,7 +24,7 @@ import com.imr.workshopmongo.services.UserService;
 @RestController
 @RequestMapping(value = "users")
 public class UserResource {
-
+	
 	@Autowired
 	private UserService userService;
 

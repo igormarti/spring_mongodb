@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import com.imr.workshopmongo.domain.Post;
 import com.imr.workshopmongo.domain.User;
 import com.imr.workshopmongo.dto.AuthorDTO;
+import com.imr.workshopmongo.dto.CommentDTO;
 import com.imr.workshopmongo.repositories.PostRepository;
 import com.imr.workshopmongo.repositories.UserRepository;
 
@@ -36,6 +37,13 @@ public class SeedRun implements CommandLineRunner {
 				new AuthorDTO(us1));
 		Post p2 = new Post(null, Instant.parse("2022-06-05T23:50:10Z"), "#FORABOLSONARO", "Ladrão safado",
 				new AuthorDTO(us2));
+		
+		CommentDTO c1 = new CommentDTO("que bom <3!!!","2022-06-06T10:00:00Z", new AuthorDTO(us2));
+		CommentDTO c2 = new CommentDTO("Presidente lixo!!!","2022-06-06T11:00:00Z", new AuthorDTO(us1));
+		
+		p1.getComments().add(c1);
+		p2.getComments().add(c2);
+		
 		postRepository.saveAll(Arrays.asList(p1, p2));
 
 		us1.getPosts().add(p1);

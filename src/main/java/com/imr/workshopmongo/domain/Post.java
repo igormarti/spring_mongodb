@@ -1,12 +1,15 @@
 package com.imr.workshopmongo.domain;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.imr.workshopmongo.dto.AuthorDTO;
+import com.imr.workshopmongo.dto.CommentDTO;
 
 @Document(collection = "posts")
 public class Post {
@@ -17,6 +20,7 @@ public class Post {
 	private String title;
 	private String body;
 	private AuthorDTO author;
+	private List<CommentDTO> comments = new ArrayList<>();
 	
 	public Post() {
 		super();
@@ -77,6 +81,10 @@ public class Post {
 			return false;
 		Post other = (Post) obj;
 		return Objects.equals(id, other.id);
+	}
+
+	public List<CommentDTO> getComments() {
+		return comments;
 	}
 
 }
